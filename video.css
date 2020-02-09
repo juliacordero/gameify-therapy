@@ -1,5 +1,5 @@
 #body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 #styled_video_container.style_it  {
@@ -32,4 +32,24 @@
 
 h2 {
     white-space: pre;
+}
+
+#buttons li {
+    list-style-type: none;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    display: inline;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+button, label {
+    border: 2px solid #1abc9c;;
+    border-radius: 8px; 
+    padding: 3%;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
 }

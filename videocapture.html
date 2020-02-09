@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="video.css">
+    </header>
+    <div id="styled_video_container">
+        <video autoplay id="video"></video>
+    </div>
+    
+   <!--<embed src=“September.mp3” id="audio">-->
+    <div>
+        <button onclick="record()">Record</button>
+        <button onclick="stop()">Stop</button>
+        <input type="checkbox" name="audio" value="on" onclick="toggle()" id="checkaudio">
+        <label for="audio">Audio</label>
+        <button id="style_it">Style</button>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function($) {
+            $('#style_it').on('click', function(){
+                $('#styled_video_container').addClass('style_it');
+            });
+            $('#stop_style_it').on('click', function(){
+                $('#styled_video_container').removeClass('style_it');
+            });
+        });
+
+
+        const constraints = {
+            video: true
+        };
+
+        const video = document.querySelector('video');
+        
+        function record() {
+            console.log("recording");
+            navigator.mediaDevices.getUserMedia(constraints).
+            then((stream) => {video.srcObject = stream});
+        }
+
+        function stop() {
+            console.log("stop");
+            video.pause();
+            if (window.stream) {
+                window.stream.getTracks().forEach(function(track) {
+                    track.stop();
+                });
+            }
+        }
+
+        function toggle() {
+            var check = document.getElementById("checkaudio");
+            var audio = document.getElementById("audio");
+            if (check.checked == true){
+                //turn on audio
+                console.log("ON")
+                audio.muted = false;
+            } else {
+                //turn off audio
+                console.log("OFF")
+                audio.muted = true;
+            }
+        }
+        
+    </script>
+</html>

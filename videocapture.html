@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="video.css">
-    </header>
-    <div id="styled_video_container">
-        <video autoplay id="video"></video>
-    </div>
-    
-   <!--<embed src=“September.mp3” id="audio">-->
-    <div>
-        <button onclick="record()">Record</button>
-        <button onclick="stop()">Stop</button>
-        <input type="checkbox" name="audio" value="on" onclick="toggle()" id="checkaudio">
-        <label for="audio">Audio</label>
-        <button id="style_it">Style</button>
-    </div>
+    </head>
+    <body>
+        <div id="header" height="20px">
+            <h2>Glove 27</h2>
+            <h2>Welcome                       Total Patients: 1,689                       Total Online: 215 </h2>
+        </div>
+        <div id="media">
+            <div id="styled_video_container">
+                <video autoplay id="video"></video>
+            </div>
+        </div>
+        <div id="control">
+            <ul id="buttons">
+                <li>
+                    <button onclick="record()">Record</button>
+                </li>
+                <li>
+                    <button onclick="stop()">Stop</button>
+                </li>
+                <li>
+                    <audio src="September.mp3" controls></audio>
+                </li>
+            </ul>
+            <div>
+                <iframe src='gif.gif' frameborder='0' scrolling='no' width='30%' height='80%' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+                <iframe src='gif1.gif' frameborder='0' scrolling='no' width='80%' height='80%' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+            </div>
+        </div>
 
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
-
         jQuery(document).ready(function($) {
             $('#style_it').on('click', function(){
                 $('#styled_video_container').addClass('style_it');
@@ -27,7 +43,6 @@
                 $('#styled_video_container').removeClass('style_it');
             });
         });
-
 
         const constraints = {
             video: true
@@ -50,20 +65,7 @@
                 });
             }
         }
-
-        function toggle() {
-            var check = document.getElementById("checkaudio");
-            var audio = document.getElementById("audio");
-            if (check.checked == true){
-                //turn on audio
-                console.log("ON")
-                audio.muted = false;
-            } else {
-                //turn off audio
-                console.log("OFF")
-                audio.muted = true;
-            }
-        }
         
     </script>
+    
 </html>

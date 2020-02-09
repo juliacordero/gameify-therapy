@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="video.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    </header>
+    </head>
     <body>
         <div id="header" height="20px">
             <h2>Welcome                       Total Patients: 1,689                       Total Online: 215 </h2>
@@ -23,12 +22,9 @@
                     <button onclick="stop()">Stop</button>
                 </li>
                 <li>
-                    <input type="checkbox" name="audio" value="on" onclick="toggle()" id="checkaudio">
-                    <label for="audio">Audio</label>
+                    <audio src="September.mp3" controls></audio>
                 </li>
             </ul>
-            
-            <!--<button id="style_it">Style</button>-->
             <div>
                 <iframe src='gif.gif' frameborder='0' scrolling='no' width='30%' height='80%' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
                 <iframe src='gif1.gif' frameborder='0' scrolling='no' width='80%' height='80%' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
@@ -36,7 +32,7 @@
         </div>
 
     </body>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         jQuery(document).ready(function($) {
             $('#style_it').on('click', function(){
@@ -68,20 +64,7 @@
                 });
             }
         }
-
-        function toggle() {
-            var check = document.getElementById("checkaudio");
-            var audio = document.getElementById("audio");
-            if (check.checked == true){
-                //turn on audio
-                console.log("ON")
-                audio.muted = false;
-            } else {
-                //turn off audio
-                console.log("OFF")
-                audio.muted = true;
-            }
-        }
         
     </script>
+    
 </html>
